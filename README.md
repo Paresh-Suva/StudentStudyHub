@@ -1,6 +1,6 @@
 # 🎓 Student Study Hub
 
-**Student Study Hub** is a modern academic resource sharing platform designed to help engineering students organize, share, and access study materials efficiently.
+**Student Study Hub** is a modern academic resource sharing platform designed to help engineering and medical students organize, share, and access study materials efficiently.
 
 ## 🚀 Live Demo
 
