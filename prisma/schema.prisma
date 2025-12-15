@@ -1,0 +1,131 @@
+// This is your database blueprint
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- SUBJECT REQUESTS ---
+model SubjectRequest {
+  id          String        @id @default(uuid())
+  userId      String
+  streamId    String
+  branchId    String
+  semesterId  String
+  subjectName String
+  message     String?       @db.Text
+  status      RequestStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status])
+  @@index([userId])
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// 1. THE USER (Synced with Clerk)
+model User {
+  id            String         @id // This will be the Clerk ID (e.g., user_2N...)
+  email         String         @unique
+  name          String?
+  role          String         @default("STUDENT") // Options: "ADMIN", "STUDENT"
+  reputation    Int            @default(0) // Gamification Points
+  imageUrl      String?        // Profile Picture URL
+  createdAt     DateTime       @default(now())
+  
+  contributions Contribution[] // Link to their uploads
+  likes         Like[]         // Files they liked
+  bookmarks     Bookmark[]     // Saved files
+  discussions   Discussion[]   // Community chats
+}
+
+// 2. THE UPLOADS (Notes/PYQs)
+model Contribution {
+  id        String   @id @default(cuid())
+  title     String
+  stream    String   // Engineering or Medical
+  branch    String   @default("General")
+  semester  String   @default("1")
+  subject   String   // Legacy String Field (Keep for now)
+  type      String   // "Note", "PYQ", "Video"
+  fileUrl   String   // Link to the PDF
+  status    String   @default("PENDING") // "PENDING", "APPROVED", "REJECTED"
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  
+  // New Relation
+  subjectId String?
+  subjectRes Subject? @relation(fields: [subjectId], references: [id]) 
+  
+  createdAt DateTime @default(now())
+  
+  likes     Like[]
+  bookmarks Bookmark[]
+}
+
+model Subject {
+  id        String   @id @default(cuid())
+  name      String
+  code      String?  // e.g. "CSC-101"
+  stream    String
+  branch    String
+  semester  String
+  createdAt DateTime @default(now())
+  
+  contributions Contribution[]
+  
+  @@unique([name, stream, branch, semester])
+}
+
+
+// 4. THE LIKES (Gamification)
+model Like {
+  id              String       @id @default(cuid())
+  userId          String
+  user            User         @relation(fields: [userId], references: [id])
+  contributionId  String
+  contribution    Contribution @relation(fields: [contributionId], references: [id])
+  createdAt       DateTime     @default(now())
+
+  @@unique([userId, contributionId]) // One like per user per file
+}
+
+// 3. THE LOGS (For your Admin Dashboard)
+model SystemLog {
+  id        Int      @id @default(autoincrement())
+  action    String   // e.g., "USER_REGISTERED"
+  details   String?
+  timestamp DateTime @default(now())
+}
+
+// 5. BOOKMARKS (Saved Items)
+model Bookmark {
+  id              String       @id @default(cuid())
+  userId          String
+  user            User         @relation(fields: [userId], references: [id])
+  contributionId  String
+  contribution    Contribution @relation(fields: [contributionId], references: [id])
+  createdAt       DateTime     @default(now())
+
+  @@unique([userId, contributionId]) // Prevent duplicates
+}
+
+// 6. DISCUSSIONS (Chat System)
+model Discussion {
+  id        String   @id @default(cuid())
+  content   String
+  category  String   // "REQUEST", "PYQ", "GENERAL", "NOTES"
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}

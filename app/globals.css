@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes glitch-colors {
+
+    0%,
+    45% {
+      color: #ef4444;
+      /* Red */
+      text-shadow: 2px 0 #22c55e;
+      /* Green shadow */
+    }
+
+    50%,
+    95% {
+      color: #22c55e;
+      /* Green */
+      text-shadow: -2px 0 #ef4444;
+      /* Red shadow */
+    }
+
+    100% {
+      color: #ef4444;
+      text-shadow: 2px 0 #22c55e;
+    }
+  }
+
+  --animate-glitch-colors: glitch-colors 2s steps(1) infinite;
+  /* Custom Login Page Animations */
+  --animate-gradient-slow: gradient 15s ease infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes bounce {
+
+    0%,
+    100% {
+      transform: translateY(-5%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  @keyframes text-shimmer {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  --animate-text-shimmer: text-shimmer 2.5s linear infinite;
+}
+
+/* Hide Clerk Badge */
+.cl-internal-b3fm6y,
+.cl-development-badge,
+.cl-footer {
+  display: none !important;
+}
+
+:root {
+  /* Deep Academic Blue / Dark Slate Theme */
+  --background: #0f172a;
+  /* Slate 900 */
+  --foreground: #f8fafc;
+  /* Slate 50 */
+
+  --primary: #3b82f6;
+  /* Blue 500 */
+  --secondary: #8b5cf6;
+  /* Violet 500 */
+  --accent: #0ea5e9;
+  /* Sky 500 */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Premium Utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
