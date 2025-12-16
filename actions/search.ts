@@ -6,12 +6,11 @@ export async function searchSubjects(query: string) {
     if (!query) return [];
 
     try {
-        const subjects = await db.subject.findMany({
+        const subjects = await (db as any).globalSubject.findMany({
             where: {
                 OR: [
                     { name: { contains: query, mode: "insensitive" } },
-                    { branch: { contains: query, mode: "insensitive" } },
-                    { stream: { contains: query, mode: "insensitive" } }
+                    { code: { contains: query, mode: "insensitive" } }
                 ]
             },
             take: 10,
