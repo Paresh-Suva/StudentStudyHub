@@ -9,40 +9,45 @@ export const checkUser = async () => {
         return null;
     }
 
-    // 2. Check if user already exists in DB
+    // 2. DETERMINE THE ROLE FIRST 🧠
+    // We check Clerk metadata. If it says "admin", we force "ADMIN".
+    // Otherwise, everyone else is "STUDENT".
+    const metadataRole = user.publicMetadata.role as string | undefined;
+    const roleToApply = metadataRole === "admin" ? "ADMIN" : "STUDENT";
+
+    // 3. Check if user already exists in DB
+    // (Note: Using 'id' here assumes your Prisma schema maps 'id' to the Clerk ID string)
     const loggedInUser = await db.user.findUnique({
         where: {
             id: user.id,
         },
     });
 
-    // 3. User exists -> Update their details to match Clerk (Self-Healing)
+    // 4. UPDATE EXISTING USER (Self-Healing)
     if (loggedInUser) {
-        // If you manually changed the role in Clerk, this ensures it syncs to DB
-        const clerkRole = (user.publicMetadata.role as string) || "STUDENT";
-
-        // Only update if something changed (Optimization)
-        if (loggedInUser.imageUrl !== user.imageUrl || loggedInUser.role !== clerkRole) {
+        // If the image changed OR the role in Clerk is different from DB...
+        if (loggedInUser.imageUrl !== user.imageUrl || loggedInUser.role !== roleToApply) {
             return await db.user.update({
                 where: { id: user.id },
                 data: {
                     name: `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim(),
                     imageUrl: user.imageUrl,
                     email: user.emailAddresses[0].emailAddress,
-                    role: clerkRole
-                }
+                    role: roleToApply, // <--- Updates role if you changed it in Clerk
+                },
             });
         }
         return loggedInUser;
     }
 
-    // 4. User does not exist -> Create new user
+    // 5. CREATE NEW USER
     const newUser = await db.user.create({
         data: {
             id: user.id,
             name: `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim(),
             imageUrl: user.imageUrl,
             email: user.emailAddresses[0].emailAddress,
+            role: roleToApply, // <--- CRITICAL: Apply the correct role on creation!
         },
     });
 
