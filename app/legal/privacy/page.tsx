@@ -44,7 +44,7 @@ export default function PrivacyPage() {
 
                 <h2>5. Contact Us</h2>
                 <p>
-                    If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:support@studentstudyhub.com">support@studentstudyhub.com</a>.
+                    If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:studentstudyhub123@gmail.com?subject=Privacy Inquiry">studentstudyhub123@gmail.com</a>.
                 </p>
             </section>
         </>

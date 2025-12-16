@@ -41,7 +41,7 @@ export default function SupportPage() {
                         title="General Inquiries"
                         desc="Partnerships, feedback, or just saying hello."
                         actionLabel="Email Us"
-                        href="mailto:hello@studentstudyhub.com"
+                        href="mailto:studentstudyhub123@gmail.com?subject=General Inquiry: Student Study Hub"
                         delay={0.3}
                     />
                     <ContactCard
@@ -49,7 +49,7 @@ export default function SupportPage() {
                         title="Report a Bug"
                         desc="Found a glitch in the matrix? Let us know."
                         actionLabel="Report Issue"
-                        href="mailto:support@studentstudyhub.com?subject=Bug Report"
+                        href="mailto:studentstudyhub123@gmail.com?subject=Bug Report: Student Study Hub"
                         variant="alert"
                         delay={0.4}
                     />
@@ -84,7 +84,7 @@ export default function SupportPage() {
                         />
                         <FAQItem
                             question="How do I delete my account?"
-                            answer="Currently, account deletion must be processed manually. Please email support@studentstudyhub.com with your request and we will scrub your data from the mainframe."
+                            answer="Currently, account deletion must be processed manually. Please email studentstudyhub123@gmail.com with your request and we will scrub your data from the mainframe."
                         />
                     </div>
                 </section>

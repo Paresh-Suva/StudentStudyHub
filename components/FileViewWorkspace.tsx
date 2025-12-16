@@ -192,7 +192,7 @@ export default function FileViewWorkspace({
                                     This document is shared strictly for student study purposes to help the community. We do not claim ownership. All credit and rights go to the original authors and institutions.
                                 </p>
                                 <a
-                                    href={`mailto:support@studentstudyhub.com?subject=Copyright Removal Request: ${file.id}`}
+                                    href={`mailto:studentstudyhub123@gmail.com?subject=Copyright Removal Request: ${file.id}`}
                                     className="text-[10px] text-red-400 hover:text-red-300 underline underline-offset-2 flex items-center gap-1 transition-colors"
                                 >
                                     Original Author? Request Removal

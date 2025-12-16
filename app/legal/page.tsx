@@ -50,7 +50,7 @@ export default function LegalPage() {
                                     Reporting Procedure
                                 </h3>
                                 <p className="text-sm text-zinc-400 mb-4">
-                                    To request removal, email <a href="mailto:support@studentstudyhub.com" className="text-white hover:text-cyan-400 underline">support@studentstudyhub.com</a> with:
+                                    To request removal, email <a href="mailto:studentstudyhub123@gmail.com?subject=DMCA Takedown Request" className="text-white hover:text-cyan-400 underline">studentstudyhub123@gmail.com</a> with:
                                 </p>
                                 <ul className="list-disc list-inside text-sm text-zinc-300 space-y-1 ml-2">
                                     <li>The Link (URL) to the file.</li>
