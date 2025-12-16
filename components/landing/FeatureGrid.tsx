@@ -8,33 +8,7 @@ import { MouseEvent } from "react";
 export default function FeatureGrid() {
     return (
         <section className="relative py-24 px-6 md:px-12 max-w-7xl mx-auto z-10">
-            {/* Section Header */}
-            <div className="mb-20 text-center">
-                <motion.h2
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    className="text-xs font-mono text-cyan-500 tracking-[0.3em] uppercase mb-4"
-                >
-                    MISSION PROTOCOL
-                </motion.h2>
-                <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-tight"
-                >
-                    WHY WE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">EXIST</span>
-                </motion.h3>
-                <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="mt-4 text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed"
-                >
-                    The education system is broken. We built the patch. <br className="hidden md:block" />
-                    Here is how we help you survive the academic grind.
-                </motion.p>
-            </div>
+
 
             {/* Compact Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[280px]">

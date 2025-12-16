@@ -108,9 +108,9 @@ function HeroContent() {
                 {/* 3D Buttons */}
                 <div className="flex flex-col items-center justify-center gap-8 sm:flex-row">
                     <SignedOut>
-                        <Link href="/register">
+                        <Link href="/sign-in">
                             <NeonButton variant="primary" className="h-14 min-w-[200px] text-lg">
-                                Join the Hub
+                                Get Started
                             </NeonButton>
                         </Link>
                     </SignedOut>

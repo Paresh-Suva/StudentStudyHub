@@ -13,7 +13,6 @@ import CommandMenu from "@/components/CommandMenu";
 import MobileMenu from "./MobileMenu";
 
 export default function NavbarClient() {
-    const { user } = useUser();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isCommandOpen, setIsCommandOpen] = useState(false);
 
@@ -79,6 +78,15 @@ export default function NavbarClient() {
                             </Link>
                         ))}
                     </div>
+
+                    {/* Mobile Login (Visible on Mobile) */}
+                    <SignedOut>
+                        <Link href="/sign-in" className="md:hidden mr-2">
+                            <NeonButton variant="primary" className="h-8 px-3 text-xs">
+                                Login
+                            </NeonButton>
+                        </Link>
+                    </SignedOut>
 
                     {/* Mobile Menu Toggle */}
                     <MobileMenu navItems={navItems} />
