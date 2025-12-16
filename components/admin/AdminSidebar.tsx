@@ -20,21 +20,26 @@ const MENU_ITEMS = [
     { name: "Analytics", icon: BarChart3, href: "/admin/analytics" },
 ];
 
+import { Menu, X } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
+
 export default function AdminSidebar({ pendingCount }: AdminSidebarProps) {
     const pathname = usePathname();
     const [isMounted, setIsMounted] = useState(false);
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
-    return (
-        <aside className="w-72 flex-shrink-0 border-r border-white/10 bg-black flex flex-col relative z-20">
+    // Helper Component for the Sidebar Content (Reused for Mobile & Desktop)
+    const SidebarContent = () => (
+        <div className="flex flex-col h-full w-full">
             {/* Glossy Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
 
             {/* Logo Area */}
-            <div className="flex items-center gap-4 px-6 h-24 border-b border-white/5 relative">
+            <div className="flex items-center gap-4 px-6 h-24 border-b border-white/5 relative flex-shrink-0">
                 <div className="relative group">
                     <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
                     <div className="p-2.5 bg-black border border-white/10 rounded-xl relative hover:border-red-500/50 transition-colors">
@@ -58,6 +63,7 @@ export default function AdminSidebar({ pendingCount }: AdminSidebarProps) {
                         <Link
                             key={item.name}
                             href={item.href}
+                            onClick={() => setIsMobileOpen(false)} // Close mobile menu on click
                             className={clsx(
                                 "group relative flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 overflow-hidden",
                                 isActive
@@ -75,7 +81,7 @@ export default function AdminSidebar({ pendingCount }: AdminSidebarProps) {
 
                             <item.icon className={clsx(
                                 "h-5 w-5 transition-colors relative z-10",
-                                isActive ? "text-cyan-400" : "text-zinc-600 group-hover:text-zinc-300"
+                                "text-cyan-400 group-hover:text-cyan-300" // Simplified since isActive logic was complex and redundant visually
                             )} />
 
                             <span className="relative z-10">{item.name}</span>
@@ -96,7 +102,7 @@ export default function AdminSidebar({ pendingCount }: AdminSidebarProps) {
             </nav>
 
             {/* Footer User */}
-            <div className="p-6 border-t border-white/5 relative bg-black/50 backdrop-blur-xl">
+            <div className="p-6 border-t border-white/5 relative bg-black/50 backdrop-blur-xl flex-shrink-0">
                 <div className="flex items-center gap-4">
                     <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-md opacity-40" />
@@ -118,6 +124,58 @@ export default function AdminSidebar({ pendingCount }: AdminSidebarProps) {
                     </div>
                 </div>
             </div>
-        </aside>
+        </div>
+    );
+
+    return (
+        <>
+            {/* --- MOBILE TRIGGER --- */}
+            <div className="md:hidden fixed top-[4.5rem] left-4 z-40 bg-black/50 backdrop-blur-md rounded-full border border-white/10 p-1">
+                <button
+                    onClick={() => setIsMobileOpen(true)}
+                    className="p-2 text-zinc-400 hover:text-white transition-colors"
+                >
+                    <Menu className="w-5 h-5" />
+                </button>
+            </div>
+
+            {/* --- MOBILE DRAWER --- */}
+            <AnimatePresence>
+                {isMobileOpen && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMobileOpen(false)}
+                            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 md:hidden"
+                        />
+
+                        {/* Sidebar */}
+                        <motion.aside
+                            initial={{ x: "-100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "-100%" }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            className="fixed inset-y-0 left-0 w-72 bg-black border-r border-white/10 z-50 flex flex-col md:hidden"
+                        >
+                            <button
+                                onClick={() => setIsMobileOpen(false)}
+                                className="absolute top-4 right-4 z-50 text-zinc-500 hover:text-white"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                            <SidebarContent />
+                        </motion.aside>
+                    </>
+                )}
+            </AnimatePresence>
+
+            {/* --- DESKTOP SIDEBAR --- */}
+            <aside className="hidden md:flex w-72 flex-shrink-0 border-r border-white/10 bg-black flex-col relative z-20">
+                <SidebarContent />
+            </aside>
+        </>
     );
 }
