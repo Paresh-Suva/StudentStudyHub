@@ -10,18 +10,21 @@ const fontSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://student-study-hub.vercel.app"),
   title: {
-    default: "Student Study Hub - The Academic Weapon",
+    default: "Student Study Hub | Free Engineering Notes & Resources",
     template: "%s | Student Study Hub",
   },
-  description: "Access 10,000+ verified notes, PYQs, and engineering resources. Join the decentralized library for students who defy the syllabus.",
+  description: "The ultimate academic resource platform. Download free GTU notes, syllabus copies, engineering study material, and previous year papers.",
+  keywords: ["StudentStudyHub", "GTU Notes", "Engineering Notes", "College Study Material", "Syllabus", "Exam Papers", "Java Notes", "Computer Science"],
+  authors: [{ name: "Student Community" }],
   icons: {
     icon: "/logo.png",
   },
   openGraph: {
-    title: "Student Study Hub",
-    description: "Unlock your academic superpower. Free notes, community, and leaderboards.",
-    url: "https://studentstudyhub.vercel.app",
+    title: "Student Study Hub | Free Engineering Notes",
+    description: "The ultimate academic resource platform. Download free GTU notes, syllabus copies, and study material.",
+    url: "https://student-study-hub.vercel.app",
     siteName: "Student Study Hub",
     images: [
       {
@@ -31,7 +34,17 @@ export const metadata: Metadata = {
         alt: "Student Study Hub Preview",
       },
     ],
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Student Study Hub | Free Engineering Notes",
+    description: "Access 10,000+ verified notes, PYQs, and engineering resources.",
+    images: ["/og-image.jpg"],
+  },
+  verification: {
+    google: "YOUR_VERIFICATION_CODE_HERE",
   },
 };
 
