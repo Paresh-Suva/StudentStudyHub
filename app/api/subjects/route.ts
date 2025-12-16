@@ -8,12 +8,14 @@ export async function GET(req: Request) {
         const branch = searchParams.get("branch");
         const semester = searchParams.get("semester");
 
-        // Build generic where clause
-        const whereClause: any = {};
+        // Build relation where clause
+        const contextFilter: any = {};
 
         if (stream) {
-            whereClause.stream = stream.toLowerCase();
+            contextFilter.stream = stream.toLowerCase();
         }
+
+        let dbBranch: string | undefined = undefined;
 
         if (branch) {
             // Normalize branch for DB lookup
@@ -35,9 +37,9 @@ export async function GET(req: Request) {
             };
 
             const rawBranch = branch.toLowerCase().trim();
-            const dbBranch = branchMap[rawBranch] || rawBranch;
+            dbBranch = branchMap[rawBranch] || rawBranch;
 
-            whereClause.branch = dbBranch;
+            contextFilter.branch = dbBranch;
         }
 
         if (semester) {
@@ -45,16 +47,34 @@ export async function GET(req: Request) {
             const semMatch = semester.match(/(\d+)/);
             const cleanSemester = semMatch ? semMatch[0] : semester.replace(/^(sem-|prof-)/, "");
 
-            whereClause.semester = cleanSemester;
+            contextFilter.semester = cleanSemester;
         }
 
-        const subjects = await db.subject.findMany({
-            where: whereClause,
-            orderBy: {
-                name: 'asc'
+        // Query the Junction Table (StreamSubject)
+        const streamSubjects = await (db as any).streamSubject.findMany({
+            where: contextFilter,
+            include: {
+                globalSubject: {
+                    include: {
+                        _count: {
+                            select: { contributions: true }
+                        }
+                    }
+                }
             },
-            take: 100 // Limit for performance safety if no filters
+            take: 100
         });
+
+        // Transform to flat format for Frontend
+        const subjects = streamSubjects.map((link: any) => ({
+            id: link.globalSubject.id, // Use Global ID
+            name: link.globalSubject.name,
+            code: link.globalSubject.code,
+            _count: link.globalSubject._count
+        }));
+
+        // Sort by name
+        subjects.sort((a: any, b: any) => a.name.localeCompare(b.name));
 
         return NextResponse.json(subjects);
 

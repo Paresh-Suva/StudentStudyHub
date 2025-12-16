@@ -59,33 +59,56 @@ export async function POST(req: Request) {
         if (newSubjectName) {
             finalSubjectName = newSubjectName;
             try {
-                // Attempt to create new subject
-                const newSub = await db.subject.create({
-                    data: {
-                        name: newSubjectName,
-                        stream: stream.toLowerCase(),
-                        branch: dbBranch,
-                        semester: cleanSem
-                    }
+                // A. Check if Global Subject exists
+                let globalSub = await db.globalSubject.findFirst({
+                    where: { name: { equals: newSubjectName, mode: "insensitive" } }
                 });
-                finalSubjectId = newSub.id;
-            } catch (e) {
-                console.error("Subject creation failed (likely duplicate)", e);
-                // Fallback: Find existing
-                const existing = await db.subject.findFirst({
+
+                // B. Create if not exists
+                if (!globalSub) {
+                    const count = await db.globalSubject.count();
+                    const autoCode = String(count + 1).padStart(3, '0');
+
+                    globalSub = await db.globalSubject.create({
+                        data: {
+                            name: newSubjectName,
+                            code: autoCode
+                        }
+                    });
+                }
+                finalSubjectId = globalSub.id;
+
+                // C. Create Link (StreamSubject) so it appears in this context
+                await db.streamSubject.upsert({
                     where: {
-                        name: newSubjectName,
+                        stream_branch_semester_globalSubjectId: {
+                            stream: stream.toLowerCase(),
+                            branch: dbBranch,
+                            semester: cleanSem,
+                            globalSubjectId: globalSub.id
+                        }
+                    },
+                    update: {}, // Do nothing if exists
+                    create: {
                         stream: stream.toLowerCase(),
                         branch: dbBranch,
-                        semester: cleanSem
+                        semester: cleanSem,
+                        globalSubjectId: globalSub.id
                     }
                 });
-                finalSubjectId = existing?.id || null;
+
+            } catch (e) {
+                console.error("Subject creation/linking failed", e);
+                // Fallback shouldn't happen often if Global ID logic works
             }
         } else if (subjectId) {
             // Fetch name for legacy field
-            const sub = await db.subject.findUnique({ where: { id: subjectId } });
+            const sub = await db.globalSubject.findUnique({ where: { id: subjectId } });
             if (sub) finalSubjectName = sub.name;
+        }
+
+        if (!finalSubjectId) {
+            return new NextResponse("Failed to resolve Subject ID", { status: 400 });
         }
 
         // 3. Create Contribution
@@ -113,12 +136,10 @@ export async function POST(req: Request) {
                     }
                 },
 
-                // Link to Subject
-                ...(finalSubjectId && {
-                    subjectRes: {
-                        connect: { id: finalSubjectId }
-                    }
-                })
+                // Link to Global Subject
+                globalSubject: {
+                    connect: { id: finalSubjectId }
+                }
             }
         });
 

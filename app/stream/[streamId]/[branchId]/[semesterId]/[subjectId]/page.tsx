@@ -11,10 +11,10 @@ export default async function SubjectDetailPage({
 }) {
     const { streamId, branchId, semesterId, subjectId } = await params;
 
-    // 1. Fetch Subject & Related Data
+    // 1. Fetch Global Subject & Related Data
     let subject;
     try {
-        subject = await db.subject.findUnique({
+        subject = await db.globalSubject.findUnique({
             where: { id: subjectId },
             include: {
                 contributions: {
@@ -72,7 +72,7 @@ export default async function SubjectDetailPage({
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div>
                             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">
-                                <span className="text-cyan-400">SUB-001</span>
+                                <span className="text-cyan-400">{subject.code || subject.id.slice(-6).toUpperCase()}</span>
                                 <span className="text-zinc-700">|</span>
                                 <span>{formattedSemTitle}</span>
                             </div>

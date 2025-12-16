@@ -23,30 +23,39 @@ export default async function SemesterPage({ params }: { params: Promise<{ strea
     // Clean semester string for DB query (e.g. "sem-3" -> "3", "prof-1" -> "1")
     const cleanSemester = semesterId.replace(/^(sem-|prof-)/, "");
 
-    const subjectsData = await db.subject.findMany({
+    // REFACTOR: Fetch from StreamSubject (Junction Table)
+    const streamSubjects = await db.streamSubject.findMany({
         where: {
             stream: streamId.toLowerCase(),
             branch: dbBranch,
             semester: cleanSemester
         },
-        orderBy: {
-            name: 'asc'
-        },
         include: {
-            _count: {
-                select: { contributions: true }
+            globalSubject: {
+                include: {
+                    _count: {
+                        select: { contributions: true }
+                    }
+                }
             }
+        },
+        orderBy: {
+            // We can't order by globalSubject.name directly in relational query easily without raw query
+            // So we sort in memory (safe for page size < 100)
+            id: 'asc'
         }
     });
 
-    // Transform DB subjects to UI format
-    const subjects = subjectsData.map((sub, index) => ({
-        id: sub.id,
-        code: `SUB-${100 + index}`, // Placeholder Code
-        title: sub.name,
-        credits: 4, // Placeholder Credits
-        fileCount: sub._count.contributions
-    }));
+    // Transform to UI format
+    const subjects = streamSubjects
+        .map((link, index) => ({
+            id: link.globalSubject.id, // Use GLOBAL ID
+            code: link.globalSubject.code || `SUB-${100 + index}`,
+            title: link.globalSubject.name,
+            credits: 4,
+            fileCount: link.globalSubject._count.contributions
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title)); // Sort alphabetically
 
     const formattedSemTitle = semesterId.replace("sem-", "Semester ").replace("prof-", "Prof ");
 

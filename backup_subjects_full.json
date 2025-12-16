@@ -1,0 +1,947 @@
+[
+  {
+    "id": "cmj4f1gdn000012d4vzgusm7a",
+    "name": "Mathematics – I",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:21.320Z"
+  },
+  {
+    "id": "cmj4f1i9u000112d41zmcq8ad",
+    "name": "Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:23.779Z"
+  },
+  {
+    "id": "cmj4f1jc4000212d4midberzg",
+    "name": "Basic Electrical Eng.",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:25.156Z"
+  },
+  {
+    "id": "cmj4f1kp2000312d4lj2dg822",
+    "name": "Engineering Graphics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:26.918Z"
+  },
+  {
+    "id": "cmj4f1lpp000412d4m8jy8mbj",
+    "name": "Mathematics – II",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:28.237Z"
+  },
+  {
+    "id": "cmj4f1mwt000512d4cqg22o79",
+    "name": "Engineering Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:29.790Z"
+  },
+  {
+    "id": "cmj4f1o4e000612d4ie81n5wx",
+    "name": "Basic Electronics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:31.359Z"
+  },
+  {
+    "id": "cmj4f1p7y000712d4q5818byp",
+    "name": "Programming for Problem Solving",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:32.782Z"
+  },
+  {
+    "id": "cmj4f1rda000912d4r7zcauv8",
+    "name": "DBMS",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:35.566Z"
+  },
+  {
+    "id": "cmj4f1skw000a12d40xcklsrb",
+    "name": "Digital Logic Design",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:36.901Z"
+  },
+  {
+    "id": "cmj4f1tp5000b12d4tsqm5a7y",
+    "name": "Probability & Statistics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:38.586Z"
+  },
+  {
+    "id": "cmj4f1uo3000c12d4ck5ai8f5",
+    "name": "Operating Systems",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:39.844Z"
+  },
+  {
+    "id": "cmj4f1vpd000d12d403f55x71",
+    "name": "Computer Networks",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:41.185Z"
+  },
+  {
+    "id": "cmj4f1xqx000f12d4kw9ukjci",
+    "name": "Computer Organization",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:43.833Z"
+  },
+  {
+    "id": "cmj4f1yth000g12d473oqick1",
+    "name": "Analysis of Algorithms",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:45.221Z"
+  },
+  {
+    "id": "cmj4f25yr000h12d4sazko27m",
+    "name": "Cyber Security",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:53:53.402Z"
+  },
+  {
+    "id": "cmj4f2cda000i12d4nd2xwadj",
+    "name": "Web Technology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:02.783Z"
+  },
+  {
+    "id": "cmj4f2g10000j12d441zcv24v",
+    "name": "Software Engineering",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:07.525Z"
+  },
+  {
+    "id": "cmj4f2i0n000k12d4gyotrfu9",
+    "name": "Machine Learning",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:09.712Z"
+  },
+  {
+    "id": "cmj4f2j1o000l12d4t588vtks",
+    "name": "Cloud Computing",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:11.436Z"
+  },
+  {
+    "id": "cmj4f2k7u000m12d4c4he2ity",
+    "name": "Compiler Design",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:12.954Z"
+  },
+  {
+    "id": "cmj4f2l9w000n12d4lqifizu8",
+    "name": "Cyber Security",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:14.324Z"
+  },
+  {
+    "id": "cmj4f2mhk000o12d4y7ciyma0",
+    "name": "Big Data Analytics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:15.896Z"
+  },
+  {
+    "id": "cmj4f2nrf000p12d48ob6mjhu",
+    "name": "IoT",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:17.547Z"
+  },
+  {
+    "id": "cmj4f2owo000q12d4h4fadb0b",
+    "name": "Project Phase-I",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:19.033Z"
+  },
+  {
+    "id": "cmj4f2r3h000r12d41v019g9h",
+    "name": "Project Phase-II",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:21.869Z"
+  },
+  {
+    "id": "cmj4f2w3m000s12d49fa6a33y",
+    "name": "AI & Deep Learning",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:27.286Z"
+  },
+  {
+    "id": "cmj4f2x0x000t12d41zaasqr3",
+    "name": "Mathematics – I",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:29.553Z"
+  },
+  {
+    "id": "cmj4f30wt000u12d42wpghtho",
+    "name": "Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:34.589Z"
+  },
+  {
+    "id": "cmj4f39oj000v12d4kmzvat5x",
+    "name": "Basic Electrical Eng.",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:43.713Z"
+  },
+  {
+    "id": "cmj4f3fx8000w12d4d8fw6wfx",
+    "name": "Engineering Graphics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:54.045Z"
+  },
+  {
+    "id": "cmj4f3h1g000x12d4u6203o3i",
+    "name": "Mathematics – II",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:55.493Z"
+  },
+  {
+    "id": "cmj4f3i9d000y12d48811zbto",
+    "name": "Engineering Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:57.073Z"
+  },
+  {
+    "id": "cmj4f3jcw000z12d4e2h911dz",
+    "name": "Basic Electronics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:58.496Z"
+  },
+  {
+    "id": "cmj4f3kht001012d46cp1v522",
+    "name": "Programming for Problem Solving",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:54:59.969Z"
+  },
+  {
+    "id": "cmj4f3nfr001212d4tqtrq301",
+    "name": "Digital Electronics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:03.784Z"
+  },
+  {
+    "id": "cmj4f3rqm001412d4eak377k9",
+    "name": "IT Fundamentals",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:09.358Z"
+  },
+  {
+    "id": "cmj4f3xbz001512d43hf609kz",
+    "name": "Operating Systems",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:16.607Z"
+  },
+  {
+    "id": "cmj4f43xp001612d4ah0plxe5",
+    "name": "DBMS",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:24.416Z"
+  },
+  {
+    "id": "cmj4f45dz001712d4gfjlidx9",
+    "name": "Software Engineering",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:27.047Z"
+  },
+  {
+    "id": "cmj4f47qr001812d43vxcjqzf",
+    "name": "Computer Networks",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:30.099Z"
+  },
+  {
+    "id": "cmj4f4atk001912d4j2kuszh1",
+    "name": "Web Programming",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:34.089Z"
+  },
+  {
+    "id": "cmj4f4bw1001a12d495ll5b62",
+    "name": "Data Mining",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:35.474Z"
+  },
+  {
+    "id": "cmj4f4d10001b12d40f1g8huu",
+    "name": "Artificial Intelligence",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:36.949Z"
+  },
+  {
+    "id": "cmj4f4e2z001c12d4wp4y1xzp",
+    "name": "Mobile Computing",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:38.315Z"
+  },
+  {
+    "id": "cmj4f4f24001d12d4v4mbi2x2",
+    "name": "Cloud Computing",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:39.580Z"
+  },
+  {
+    "id": "cmj4f4g67001e12d4xkx8blr8",
+    "name": "Information Security",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:40.794Z"
+  },
+  {
+    "id": "cmj4f4jln001f12d449grx9xh",
+    "name": "Big Data Analytics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:45.467Z"
+  },
+  {
+    "id": "cmj4f4paj001g12d4nyoe9gmj",
+    "name": "IoT",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:52.843Z"
+  },
+  {
+    "id": "cmj4f4thr001h12d4qien34x7",
+    "name": "Project Phase-II",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:58.066Z"
+  },
+  {
+    "id": "cmj4f4uga001i12d4pnwkol2c",
+    "name": "Mathematics – I",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:55:59.530Z"
+  },
+  {
+    "id": "cmj4f4vir001j12d4hekrz2m2",
+    "name": "Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:00.916Z"
+  },
+  {
+    "id": "cmj4f4wnm001k12d4jkl9ej40",
+    "name": "Basic Electrical Eng.",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:02.387Z"
+  },
+  {
+    "id": "cmj4f4xvb001l12d4kgbkdb33",
+    "name": "Engineering Graphics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:03.960Z"
+  },
+  {
+    "id": "cmj4f4zj3001m12d4agiwj5vs",
+    "name": "Thermodynamics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:06.111Z"
+  },
+  {
+    "id": "cmj4f50i5001n12d41hdxct8x",
+    "name": "Strength of Materials",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:07.373Z"
+  },
+  {
+    "id": "cmj4f53wp001o12d4xslycndp",
+    "name": "Material Science",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:11.786Z"
+  },
+  {
+    "id": "cmj4f5b7y001p12d4f3v8uqoq",
+    "name": "Heat Transfer",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:19.019Z"
+  },
+  {
+    "id": "cmj4f5gtr001q12d47u4civzj",
+    "name": "Dynamics of Machinery",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:28.527Z"
+  },
+  {
+    "id": "cmj4f5lxr001r12d4c1fqsx9b",
+    "name": "Production Tech",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:35.151Z"
+  },
+  {
+    "id": "cmj4f5om2001s12d47kfqoi9w",
+    "name": "Mathematics – I",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:38.355Z"
+  },
+  {
+    "id": "cmj4f5pqg001t12d4r1qehuh2",
+    "name": "Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:40.072Z"
+  },
+  {
+    "id": "cmj4f5qt1001u12d43fd0t08f",
+    "name": "Basic Electrical Eng.",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:41.462Z"
+  },
+  {
+    "id": "cmj4f5ryt001v12d4kupnbq4e",
+    "name": "Engineering Graphics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:42.965Z"
+  },
+  {
+    "id": "cmj4f5t0i001w12d4wsq5s0mr",
+    "name": "Surveying",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:44.323Z"
+  },
+  {
+    "id": "cmj4f5u6o001x12d4tkjtddnb",
+    "name": "Fluid Mechanics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:45.841Z"
+  },
+  {
+    "id": "cmj4f5v4f001y12d4kgs3uc0m",
+    "name": "Geology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:47.056Z"
+  },
+  {
+    "id": "cmj4f5w75001z12d4oc81wylj",
+    "name": "Structural Analysis",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:48.450Z"
+  },
+  {
+    "id": "cmj4f5xap002012d4ggpjttkc",
+    "name": "Concrete Technology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:49.874Z"
+  },
+  {
+    "id": "cmj4f5ye5002112d4g2b860jc",
+    "name": "Transportation Eng.",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:51.293Z"
+  },
+  {
+    "id": "cmj4f5zeb002212d46i5whsld",
+    "name": "Mathematics – I",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:52.595Z"
+  },
+  {
+    "id": "cmj4f60kg002312d4y5vt3tlw",
+    "name": "Physics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:53.877Z"
+  },
+  {
+    "id": "cmj4f61ka002412d4jbmxsnbz",
+    "name": "Basic Electrical Eng.",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:55.403Z"
+  },
+  {
+    "id": "cmj4f62r1002512d46gtp0fyg",
+    "name": "Engineering Graphics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:56.942Z"
+  },
+  {
+    "id": "cmj4f3oha001312d4ulp9fdwr",
+    "name": "OOP with C++",
+    "code": null,
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "3",
+    "createdAt": "2025-12-13T14:55:05.134Z"
+  },
+  {
+    "id": "cmj4f1q6t000812d4nybavxtr",
+    "name": "Data Structures",
+    "code": null,
+    "stream": "engineering",
+    "branch": "computer",
+    "semester": "3",
+    "createdAt": "2025-12-13T14:53:34.037Z"
+  },
+  {
+    "id": "cmj4f3lvr001112d4487z8us2",
+    "name": "Data Structures",
+    "code": null,
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "3",
+    "createdAt": "2025-12-13T14:55:01.506Z"
+  },
+  {
+    "id": "cmj4f63wg002612d4b6qetor4",
+    "name": "Network Theory",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:58.433Z"
+  },
+  {
+    "id": "cmj4f64tu002712d4u1374xb0",
+    "name": "Electrical Machines",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:56:59.635Z"
+  },
+  {
+    "id": "cmj4f65xm002812d43hzukr6t",
+    "name": "Analog Electronics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:01.067Z"
+  },
+  {
+    "id": "cmj4f66zo002912d4zpc3knbj",
+    "name": "Power Systems",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:02.437Z"
+  },
+  {
+    "id": "cmj4f686p002a12d46sfaiqy6",
+    "name": "Power Electronics",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:03.986Z"
+  },
+  {
+    "id": "cmj4f695d002b12d4l4n11s2v",
+    "name": "Electrical Drives",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:05.233Z"
+  },
+  {
+    "id": "cmj4f6aa6002c12d4yvwpu1e3",
+    "name": "Human Anatomy",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:06.702Z"
+  },
+  {
+    "id": "cmj4f6bb4002d12d4xkzjlrvs",
+    "name": "Physiology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:08.032Z"
+  },
+  {
+    "id": "cmj4f6ck9002e12d4flzq5r41",
+    "name": "Biochemistry",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:09.426Z"
+  },
+  {
+    "id": "cmj4f6dl1002f12d4v4lt0ujx",
+    "name": "Pathology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:10.981Z"
+  },
+  {
+    "id": "cmj4f6ekw002g12d42g3u2zl8",
+    "name": "Microbiology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:12.273Z"
+  },
+  {
+    "id": "cmj4f6fiw002h12d4s0hxzhv2",
+    "name": "Pharmacology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:13.496Z"
+  },
+  {
+    "id": "cmj4f6gks002i12d4bv44nifq",
+    "name": "Ophthalmology",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:14.860Z"
+  },
+  {
+    "id": "cmj4f6hmi002j12d4us5v1qvr",
+    "name": "ENT",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:16.218Z"
+  },
+  {
+    "id": "cmj4f6ioo002k12d474gr04yk",
+    "name": "Community Medicine",
+    "code": null,
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-13T14:57:17.593Z"
+  },
+  {
+    "id": "cmj7cna300000brlpswipn6k1",
+    "name": "Basic Mechanical Eng.",
+    "code": "104",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-15T16:09:38.964Z"
+  },
+  {
+    "id": "cmj8l6ptp00009xiu02pe1zze",
+    "name": "ORTHOPEDICS",
+    "code": "SUB-488",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T12:56:29.245Z"
+  },
+  {
+    "id": "cmj8l6wto00019xiu1msmssih",
+    "name": "RADIOLOGY ",
+    "code": "SUB-9",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T12:56:38.316Z"
+  },
+  {
+    "id": "cmj8l70nn0000qmvbayu611pi",
+    "name": "ANESTHESIA ",
+    "code": "SUB-408",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T12:56:43.281Z"
+  },
+  {
+    "id": "cmj8l86uw000068l9bk5p7sb6",
+    "name": "PSYCHIATRY",
+    "code": "SUB-116",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T12:57:37.977Z"
+  },
+  {
+    "id": "cmj8l8r4u0001qmvbf9ck2z25",
+    "name": "DERMATOLOGY ",
+    "code": "SUB-878",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T12:58:04.252Z"
+  },
+  {
+    "id": "cmj8lbe1z0003qmvbzlvcq2sq",
+    "name": "SURGERY ",
+    "code": "SUB-825",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T13:00:07.272Z"
+  },
+  {
+    "id": "cmj8lbluv000168l9bbmxo8yx",
+    "name": "MEDICINE",
+    "code": "SUB-611",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T13:00:17.379Z"
+  },
+  {
+    "id": "cmj8lbtua000268l9tj5muxg7",
+    "name": "OBGY",
+    "code": "SUB-808",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T13:00:27.730Z"
+  },
+  {
+    "id": "cmj8ldzw80000tj8qo25b2y0s",
+    "name": "PEDIATRICS",
+    "code": "SUB-820",
+    "stream": null,
+    "branch": null,
+    "semester": null,
+    "createdAt": "2025-12-16T13:02:08.887Z"
+  },
+  {
+    "id": "cmj4f1wo4000e12d4mzjtf5gm",
+    "name": "OOP with Java",
+    "code": null,
+    "stream": "engineering",
+    "branch": "computer",
+    "semester": "4",
+    "createdAt": "2025-12-13T14:53:42.437Z"
+  },
+  {
+    "id": "cmj5p1ia900005r6pcnhx2d6k",
+    "name": "Python with Data Science",
+    "code": null,
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "5",
+    "createdAt": "2025-12-14T12:21:05.837Z"
+  },
+  {
+    "id": "cmj8txhl300009twmk963omwj",
+    "name": "OOP with Java",
+    "code": "101",
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "4",
+    "createdAt": "2025-12-16T17:01:14.887Z"
+  }
+]

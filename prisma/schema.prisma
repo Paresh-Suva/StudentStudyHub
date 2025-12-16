@@ -59,13 +59,12 @@ model Contribution {
   type      String   // "Note", "PYQ", "Video"
   fileUrl   String   // Link to the PDF
   status    String   @default("PENDING") // "PENDING", "APPROVED", "REJECTED"
-  
+  // Relations
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   
-  // New Relation
-  subjectId String?
-  subjectRes Subject? @relation(fields: [subjectId], references: [id]) 
+  globalSubjectId String
+  globalSubject   GlobalSubject @relation(fields: [globalSubjectId], references: [id], onDelete: Cascade)
   
   createdAt DateTime @default(now())
   
@@ -73,19 +72,41 @@ model Contribution {
   bookmarks Bookmark[]
 }
 
-model Subject {
+
+
+// --- GLOBAL LIBRARY SCHEMA ---
+
+model GlobalSubject {
   id        String   @id @default(cuid())
-  name      String
-  code      String?  // e.g. "CSC-101"
+  name      String   @unique
+  code      String?  @unique // Optional global code e.g. "KCS-301"
+  
+  // Relations
+  instances     StreamSubject[]
+  contributions Contribution[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model StreamSubject {
+  id        String   @id @default(cuid())
+  
+  // The Context
   stream    String
   branch    String
   semester  String
-  createdAt DateTime @default(now())
   
-  contributions Contribution[]
-  
-  @@unique([name, stream, branch, semester])
+  // The Source of Truth
+  globalSubjectId String
+  globalSubject   GlobalSubject @relation(fields: [globalSubjectId], references: [id], onDelete: Cascade)
+
+  @@unique([stream, branch, semester, globalSubjectId])
+  @@index([stream, branch, semester])
 }
+
+// NOTE: Old 'Subject' model is DELETED.
+
 
 
 // 4. THE LIKES (Gamification)

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cmj8t5jzw0001bmkywixfzlhm",
+    "stream": "engineering",
+    "branch": "computer",
+    "semester": "4",
+    "subjectId": "cmj4f1wo4000e12d4mzjtf5gm"
+  },
+  {
+    "id": "cmj8t5kn50003bmkyf9vfn784",
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "3",
+    "subjectId": "cmj4f3oha001312d4ulp9fdwr"
+  },
+  {
+    "id": "cmj8t5l1h0005bmkyk2zvy8o8",
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "5",
+    "subjectId": "cmj5p1ia900005r6pcnhx2d6k"
+  },
+  {
+    "id": "cmj8t5lge0007bmkyh4ry6flx",
+    "stream": "engineering",
+    "branch": "computer",
+    "semester": "3",
+    "subjectId": "cmj4f1q6t000812d4nybavxtr"
+  },
+  {
+    "id": "cmj8t5lwx0009bmky4t3f6a8y",
+    "stream": "engineering",
+    "branch": "it",
+    "semester": "3",
+    "subjectId": "cmj4f3lvr001112d4487z8us2"
+  }
+]

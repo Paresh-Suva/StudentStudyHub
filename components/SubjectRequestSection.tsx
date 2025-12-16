@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useEffect } from "react";
 import { Plus, HelpCircle, X, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createSubjectRequest } from "@/actions/subject-request";
@@ -20,7 +20,7 @@ export default function SubjectRequestSection({ isAdmin, streamId, branchId, sem
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [subjectName, setSubjectName] = useState("");
-    const [subjectCode, setSubjectCode] = useState("");
+    // const [subjectCode, setSubjectCode] = useState(""); // Removed
     const [message, setMessage] = useState("");
     const [isPending, startTransition] = useTransition();
 
@@ -32,7 +32,7 @@ export default function SubjectRequestSection({ isAdmin, streamId, branchId, sem
                 // Admin: Create Subject Directly
                 const result = await createSubject({
                     name: subjectName,
-                    code: subjectCode,
+                    // code: subjectCode, // Removed for auto-gen
                     streamId,
                     branchId,
                     semesterId
@@ -42,7 +42,7 @@ export default function SubjectRequestSection({ isAdmin, streamId, branchId, sem
                     toast.success("Subject Created!");
                     setIsOpen(false);
                     setSubjectName("");
-                    setSubjectCode("");
+                    // setSubjectCode("");
                     router.refresh(); // Refresh to show new subject
                 } else {
                     toast.error(result.error || "Failed decreaseSubject");
@@ -144,29 +144,34 @@ export default function SubjectRequestSection({ isAdmin, streamId, branchId, sem
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label className="block text-xs font-medium text-zinc-500 mb-1 uppercase tracking-wider">Subject Name</label>
-                                    <input
-                                        type="text"
-                                        value={subjectName}
-                                        onChange={(e) => setSubjectName(e.target.value)}
-                                        required
-                                        className="w-full rounded-lg bg-black border border-white/10 px-4 py-2.5 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all"
-                                        placeholder={isAdmin ? "e.g. Data Structures" : "e.g. Advanced Algorithms"}
-                                    />
-                                </div>
-
-                                {isAdmin && (
-                                    <div>
-                                        <label className="block text-xs font-medium text-zinc-500 mb-1 uppercase tracking-wider">Subject Code</label>
+                                    <div className="relative">
                                         <input
                                             type="text"
-                                            value={subjectCode}
-                                            onChange={(e) => setSubjectCode(e.target.value)}
+                                            value={subjectName}
+                                            onChange={(e) => {
+                                                setSubjectName(e.target.value);
+                                                // Reset generic search logic if needed, 
+                                                // but for now we rely on a separate Effect or simple debounce could be added here
+                                            }}
                                             required
-                                            className="w-full rounded-lg bg-black border border-white/10 px-4 py-2.5 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all uppercase"
-                                            placeholder="e.g. CSC-201"
+                                            className="w-full rounded-lg bg-black border border-white/10 px-4 py-2.5 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all"
+                                            placeholder={isAdmin ? "Type to search..." : "e.g. Advanced Algorithms"}
+                                            autoComplete="off"
                                         />
+
+                                        {/* Smart Suggestions (Admin Only) */}
+                                        {isAdmin && subjectName.length > 1 && (
+                                            <SubjectSuggestions
+                                                query={subjectName}
+                                                onSelect={(name) => setSubjectName(name)}
+                                            />
+                                        )}
                                     </div>
-                                )}
+                                </div>
+
+
+                                {/* Subject Code Input REMOVED - Auto Generated */}
+
 
                                 {!isAdmin && (
                                     <div>
@@ -180,6 +185,7 @@ export default function SubjectRequestSection({ isAdmin, streamId, branchId, sem
                                     </div>
                                 )}
 
+
                                 <NeonButton
                                     disabled={isPending}
                                     className="w-full justify-center"
@@ -190,7 +196,53 @@ export default function SubjectRequestSection({ isAdmin, streamId, branchId, sem
                         </motion.div>
                     </div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence >
         </>
+    );
+}
+
+// --- SUB-COMPONENT: SUGGESTIONS ---
+function SubjectSuggestions({ query, onSelect }: { query: string; onSelect: (name: string) => void }) {
+    const [matches, setMatches] = useState<{ id: string, name: string, _count: { instances: number } }[]>([]);
+
+    useEffect(() => {
+        const timer = setTimeout(async () => {
+            if (query.length < 2) return;
+            try {
+                const res = await fetch(`/api/subjects/search?q=${encodeURIComponent(query)}`);
+                const data = await res.json();
+                setMatches(data);
+            } catch (e) { console.error(e); }
+        }, 300); // 300ms Debounce
+
+        return () => clearTimeout(timer);
+    }, [query]);
+
+    if (matches.length === 0) return null;
+
+    return (
+        <div className="absolute z-50 left-0 right-0 mt-2 bg-zinc-900 border border-white/10 rounded-xl shadow-xl overflow-hidden">
+            <div className="px-3 py-2 text-[10px] font-bold text-zinc-500 uppercase tracking-wider bg-white/5">
+                Global Library Matches
+            </div>
+            {matches.map((sub) => (
+                <button
+                    key={sub.id}
+                    type="button"
+                    onClick={() => {
+                        onSelect(sub.name);
+                        setMatches([]); // Clear after selection
+                    }}
+                    className="w-full text-left px-4 py-3 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors flex items-center justify-between group"
+                >
+                    <span className="text-sm font-medium text-zinc-300 group-hover:text-white">{sub.name}</span>
+                    {sub._count.instances > 0 && (
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-zinc-500">
+                            Used in {sub._count.instances} streams
+                        </span>
+                    )}
+                </button>
+            ))}
+        </div>
     );
 }
