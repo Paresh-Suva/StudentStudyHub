@@ -14,7 +14,7 @@ async function inspect() {
         subjectId: s.subjectId
     })));
 
-    const contributions = await db.contribution.findMany({ take: 5, where: { subjectId: { not: null } } });
+    const contributions = await db.contribution.findMany({ take: 5, where: { globalSubjectId: { not: null } } });
     console.log("\nContributions (Source Data):");
     console.table(contributions.map(c => ({
         stream: c.stream,

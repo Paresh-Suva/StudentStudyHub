@@ -52,7 +52,7 @@ async function normalize() {
                     stream: newStream,
                     branch: newBranch,
                     semester: newSemester,
-                    subjectId: link.subjectId
+                    globalSubjectId: link.globalSubjectId
                 }
             });
 

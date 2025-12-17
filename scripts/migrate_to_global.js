@@ -39,11 +39,11 @@ async function migrate() {
         try {
             await db.streamSubject.upsert({
                 where: {
-                    stream_branch_semester_subjectId: {
+                    stream_branch_semester_globalSubjectId: {
                         stream: targetStream,
                         branch: targetBranch,
                         semester: targetSemester,
-                        subjectId: sub.id
+                        globalSubjectId: sub.id
                     }
                 },
                 update: {}, // No update needed if exists
@@ -51,7 +51,7 @@ async function migrate() {
                     stream: targetStream,
                     branch: targetBranch,
                     semester: targetSemester,
-                    subjectId: sub.id
+                    globalSubjectId: sub.id
                 }
             });
 

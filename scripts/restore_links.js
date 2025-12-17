@@ -7,7 +7,7 @@ async function restore() {
 
     // Get all contributions that have a linked subject
     const contributions = await db.contribution.findMany({
-        where: { subjectId: { not: null } }
+        where: { globalSubjectId: { not: null } }
     });
 
     console.log(`Found ${contributions.length} contributions to analyze.`);
