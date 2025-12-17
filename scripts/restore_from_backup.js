@@ -18,11 +18,11 @@ async function restore() {
 
     for (const link of backupData) {
         // Find subject with this ID
-        const subject = await db.subject.findUnique({ where: { id: link.subjectId } });
+        const subject = await db.globalSubject.findUnique({ where: { id: link.subjectId } });
 
         if (subject) {
             // Update it with the backed-up location info
-            await db.subject.update({
+            await db.globalSubject.update({
                 where: { id: link.subjectId },
                 data: {
                     stream: link.stream, // Use the backed up value directly (which we normalized earlier)

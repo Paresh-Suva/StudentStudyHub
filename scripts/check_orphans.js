@@ -6,7 +6,7 @@ async function checkOrphans() {
     console.log("Checking for Orphaned Subjects...");
 
     // Find subjects where stream is empty or null (orphaned from location)
-    const orphans = await db.subject.findMany({
+    const orphans = await db.globalSubject.findMany({
         where: {
             OR: [
                 { stream: { equals: "" } },
@@ -17,7 +17,7 @@ async function checkOrphans() {
         }
     });
 
-    const total = await db.subject.count();
+    const total = await db.globalSubject.count();
 
     console.log(`Total Subjects: ${total}`);
     console.log(`Orphaned Subjects (No Location): ${orphans.length}`);

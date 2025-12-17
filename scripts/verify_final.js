@@ -5,7 +5,7 @@ const db = new PrismaClient();
 async function verify() {
     console.log("--- FINAL VERIFICATION ---");
 
-    const subjectCount = await db.subject.count();
+    const subjectCount = await db.globalSubject.count();
     const linkCount = await db.streamSubject.count();
     const contribCount = await db.contribution.count();
 

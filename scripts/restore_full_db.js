@@ -26,7 +26,7 @@ async function restoreFull() {
         // CHECK CONTRIBUTIONS FIRST.
 
         try {
-            await db.subject.create({
+            await db.globalSubject.create({
                 data: {
                     id: sub.id, // Keep original ID
                     name: sub.name,

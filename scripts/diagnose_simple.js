@@ -4,7 +4,7 @@ const db = new PrismaClient();
 
 async function main() {
     try {
-        const subjectCount = await db.subject.count();
+        const subjectCount = await db.globalSubject.count();
         const streamSubjectCount = await db.streamSubject.count();
         const contributionCount = await db.contribution.count();
 

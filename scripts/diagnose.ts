@@ -1,16 +1,16 @@
-
+```
 import { db } from "@/lib/db";
 
 async function main() {
     try {
-        const subjectCount = await db.subject.count();
+        const subjectCount = await db.globalSubject.count();
         const streamSubjectCount = await db.streamSubject.count();
         const contributionCount = await db.contribution.count();
 
-        console.log(`DIAGNOSIS:`);
-        console.log(`Subjects Found: ${subjectCount}`);
-        console.log(`StreamSubjects Found: ${streamSubjectCount}`);
-        console.log(`Contributions Found: ${contributionCount}`);
+        console.log(`DIAGNOSIS: `);
+        console.log(`Global Subjects: ${ subjectCount } `);
+        console.log(`StreamSubjects Found: ${ streamSubjectCount } `);
+        console.log(`Contributions Found: ${ contributionCount } `);
 
         // Check if we can link back
         const verifiable contributions = await db.contribution.findMany({

@@ -23,7 +23,7 @@ async function purge() {
 
     // 2. Delete Main Content
     console.log("Deleting Subjects...");
-    await db.subject.deleteMany({});
+    await db.globalSubject.deleteMany({});
 
     console.log("✅ PURGE COMPLETE. Library is empty. Users are safe.");
 }

@@ -5,7 +5,7 @@ const db = new PrismaClient();
 async function migrate() {
     console.log("STARTING SAFE MIGRATION...");
 
-    const subjects = await db.subject.findMany();
+    const subjects = await db.globalSubject.findMany();
     console.log(`Found ${subjects.length} subjects to process.`);
 
     let activeLinks = 0;

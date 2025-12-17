@@ -5,7 +5,7 @@ const db = new PrismaClient();
 
 async function backup() {
     console.log("Backing up ALL Subject data...");
-    const subjects = await db.subject.findMany();
+    const subjects = await db.globalSubject.findMany();
 
     fs.writeFileSync('backup_subjects_full.json', JSON.stringify(subjects, null, 2));
     console.log(`Backup saved to backup_subjects_full.json (${subjects.length} records)`);
